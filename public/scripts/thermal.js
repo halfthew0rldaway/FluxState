@@ -188,6 +188,7 @@ export function updateThermalState(state, params) {
         heatGenerated: heat.cpu,
         heatDissipated: dissipation,
         equilibriumTemp: equilibriumTemp,
+        headroom: maxCpuTemp - equilibriumTemp,
         // noise level
         noiseLevel: calculateNoise(cooling, fanSpeed, fanCount)
     };

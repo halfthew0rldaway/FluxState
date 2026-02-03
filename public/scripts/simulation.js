@@ -181,7 +181,8 @@ function immediateUpdate(store) {
         // Keep existing thermal state but update equilibrium display
         thermal: {
             ...state.thermal,
-            equilibriumTemp: result.thermal.equilibriumTemp
+            equilibriumTemp: result.thermal.equilibriumTemp,
+            headroom: result.thermal.headroom
         },
         boostState: result.boostState,
         lastUpdate: Date.now()

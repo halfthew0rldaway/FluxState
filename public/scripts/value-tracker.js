@@ -13,7 +13,13 @@ class ValueTracker {
         const oldValue = this.values.get(key);
         this.values.set(key, newValue);
 
-        if (oldValue !== undefined && oldValue !== newValue && element) {
+        // Only animate if change is significant (prevents flickering)
+        // Threshold: > 3 unit change OR > 5% relative change
+        const diff = Math.abs(newValue - oldValue);
+        const relativeDiff = oldValue !== 0 ? diff / Math.abs(oldValue) : 1;
+        const isSignificant = diff > 3 || relativeDiff > 0.05;
+
+        if (oldValue !== undefined && oldValue !== newValue && element && isSignificant) {
             this.animateChange(element, oldValue, newValue);
         }
     }

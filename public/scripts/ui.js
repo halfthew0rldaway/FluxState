@@ -1297,8 +1297,11 @@ function updateScore(elements, state) {
 
     // 2. Thermal Score (Headroom)
     // 20C headroom = 100 score. 0C = 0.
-    const headroom = (state.thermal?.headroom || 0);
-    let thermScore = Math.min(100, Math.max(0, headroom * 5));
+    const thermalHeadroom = Number.isFinite(state.thermal?.thermalHeadroom)
+        ? state.thermal.thermalHeadroom
+        : ((state.cpu?.maxSafeTemp || 95) - (state.thermal?.equilibriumTemp ?? state.thermal?.cpuTemp ?? 0));
+    const headroom = Math.max(0, thermalHeadroom || 0);
+    let thermScore = Math.min(100, headroom * 5);
     if (state.thermal?.isThrottling) thermScore = 0;
 
     // 3. Stability Score (Transient Headroom)
