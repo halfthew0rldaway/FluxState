@@ -1330,3 +1330,116 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--border-active); 
 }
+
+/* ============================================
+   MOBILE RESPONSIVENESS OVERHAUL
+   ============================================ */
+
+/* Tablet & Mobile Breakpoint (1024px and below) */
+@media (max-width: 1024px) {
+  .simulator-container {
+    padding: var(--space-3);
+    max-width: 100%;
+  }
+
+  .simulator-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+  
+  .sidebar {
+    position: relative; /* Unstick sidebar on mobile */
+    top: 0;
+    height: auto;
+    margin-bottom: var(--space-4);
+  }
+  
+  .graphs-section {
+    grid-template-columns: 1fr; /* Stack graphs */
+  }
+}
+
+/* Mobile Breakpoint (768px and below) */
+@media (max-width: 768px) {
+  .simulator-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-3);
+  }
+
+  .header-content {
+    width: 100%;
+  }
+  
+  .header-badges {
+    width: 100%;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+
+  /* Adjust Typography */
+  .simulator-title {
+    font-size: 1.25rem;
+  }
+  
+  .simulator-subtitle {
+    font-size: 0.8rem;
+  }
+
+  /* Form & Input adjustments */
+  .form-row {
+    grid-template-columns: 1fr; /* Stack inputs */
+  }
+
+  .storage-grid {
+    grid-template-columns: 1fr 1fr 1fr; /* Keep 3 but smaller text */
+    gap: 4px;
+  }
+  
+  .storage-input {
+    padding: 6px;
+  }
+
+  .storage-input label {
+    font-size: 0.65rem;
+  }
+
+  /* Power Panel Grid */
+  .power-readout-row {
+    grid-template-columns: 1fr 1fr !important; /* Force 2 columns */
+    gap: var(--space-2) !important;
+  }
+
+  .stat-value {
+    font-size: 1.25rem;
+  }
+
+  /* Hide complex breakdown on very small screens? No, just stack */
+  .breakdown-row {
+     font-size: 0.8rem;
+  }
+
+  /* Misc */
+  .panel-header {
+    padding: var(--space-3);
+  }
+  
+  .panel-content {
+    padding: var(--space-3);
+  }
+}
+
+/* Small Mobile (480px and below) */
+@media (max-width: 480px) {
+  .storage-grid {
+    grid-template-columns: 1fr; /* Stack storage inputs */
+  }
+
+  .power-readout-row {
+    grid-template-columns: 1fr !important;
+  }
+  
+  .header-badges {
+    justify-content: flex-start;
+  }
+}
