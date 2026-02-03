@@ -1,0 +1,82 @@
+---
+/**
+ * PC Power & Thermal Simulator - Comprehensive Edition
+ */
+import ConfigPanel from '../components/ConfigPanel.astro';
+import PowerPanel from '../components/PowerPanel.astro';
+import ThermalPanel from '../components/ThermalPanel.astro';
+import GraphsPanel from '../components/GraphsPanel.astro';
+import WarningsPanel from '../components/WarningsPanel.astro';
+import ScorePanel from '../components/ScorePanel.astro';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PC Power and Thermal Behavior Simulator - Explore realistic system power draw, heat generation, and thermal throttling with curated hardware data from Intel, AMD, and NVIDIA.">
+    <meta name="keywords" content="PC power calculator, thermal simulation, CPU TDP, GPU power draw, PSU sizing, computer power consumption">
+    <title>FluxState - PC Power Simulation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="icon" type="image/png" href="/favicon.png">
+</head>
+<body>
+    <div class="tech-background">
+        <div class="grid-overlay"></div>
+        <div class="scan-line"></div>
+        <div class="vignette"></div>
+    </div>
+    <div class="simulator-container">
+        <header class="simulator-header">
+            <div class="header-content fade-in">
+                <h1 class="simulator-title">
+                    <img src="/favicon.png" alt="FluxState" class="header-logo" style="height: 32px; width: 32px; margin-right: 12px;">
+                    FluxState
+                </h1>
+                <p class="simulator-subtitle">
+                    Real-time Hardware Analysis • <span id="db-version">v2.4.0</span>
+                </p>
+            </div>
+            <div class="header-badges fade-in-delay">
+                <span class="badge"><i class="ph ph-cpu"></i> Intel 3rd-14th Gen</span>
+                <span class="badge"><i class="ph ph-cpu"></i> AMD Zen 1-4</span>
+                <span class="badge"><i class="ph ph-graphics-card"></i> Multi-GPU Support</span>
+            </div>
+        </header>
+        
+        <div class="simulator-grid">
+            <aside class="sidebar">
+                <ConfigPanel />
+            </aside>
+            
+            <main class="main-content">
+                <GraphsPanel />
+                
+                <div class="content-row">
+                    <PowerPanel />
+                    <ThermalPanel />
+                    <ScorePanel />
+                </div>
+                
+                <WarningsPanel />
+            </main>
+        </div>
+        
+        <footer class="simulator-footer">
+            <div class="footer-content">
+                <p class="footer-note">
+                    Simulation based on publicly available specifications and community-measured data. 
+                    Actual power draw varies by specific SKU, manufacturing variation, voltage settings, and workload characteristics.
+                </p>
+            </div>
+        </footer>
+    </div>
+    
+    <script type="module" src="/scripts/main.js?v=4"></script>
+</body>
+</html>

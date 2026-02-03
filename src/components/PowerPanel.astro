@@ -1,0 +1,134 @@
+---
+/**
+ * Power Stats Panel - Enhanced with Clock Speeds
+ */
+---
+
+<div class="panel power-panel">
+  <div class="panel-header">
+    <span class="panel-title">Power Analysis</span>
+  </div>
+  <div class="panel-content">
+    <div class="power-readout-row">
+      <div class="stat-item">
+        <div class="stat-label">CPU Power</div>
+        <div id="cpu-power-value" class="stat-value">--W</div>
+        <div id="cpu-clock-value" class="stat-clock">-- GHz</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-label">GPU Power</div>
+        <div id="gpu-power-value" class="stat-value">--W</div>
+        <div id="gpu-clock-value" class="stat-clock">-- MHz</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-label">System DC</div>
+        <div id="system-power-value" class="stat-value">--W</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-label">Wall AC</div>
+        <div id="wall-power-value" class="stat-value">--W</div>
+      </div>
+    </div>
+
+<style>
+    .power-readout-row {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--space-4);
+    }
+    
+    @media (max-width: 1200px) {
+        .power-readout-row {
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-4);
+        }
+    }
+</style>
+    
+    <div class="stat-item" style="margin-top: var(--space-2);">
+      <div class="stat-label">PSU Load</div>
+      <div id="psu-load-value" class="stat-value">--%</div>
+      <div class="progress-container">
+        <div id="psu-load-bar" class="progress-bar" style="width: 0%"></div>
+      </div>
+      <div id="efficiency-indicator" class="efficiency-indicator" style="display: none;">
+        <i class="ph-bold ph-info"></i>
+        <span id="efficiency-indicator-text"></span>
+      </div>
+    </div>
+    
+    <div class="clock-info" id="clock-info-box">
+      <div class="clock-info-title">Current Clock Speeds</div>
+      <div class="clock-row">
+        <span class="clock-label">CPU</span>
+        <span id="cpu-clock-full" class="clock-value">--</span>
+      </div>
+      <div class="clock-row">
+        <span class="clock-label">GPU Core</span>
+        <span id="gpu-clock-full" class="clock-value">--</span>
+      </div>
+      <div class="clock-row">
+        <span class="clock-label">Memory</span>
+        <span id="mem-clock-full" class="clock-value">--</span>
+      </div>
+    </div>
+    
+    <div class="breakdown">
+      <div class="breakdown-row">
+        <span class="breakdown-label">Transient Peak</span>
+        <span id="transient-peak-value" class="breakdown-value">--W</span>
+      </div>
+      <div class="breakdown-row">
+        <span class="breakdown-label">Efficiency</span>
+        <span id="efficiency-value" class="breakdown-value">--%</span>
+      </div>
+      <div class="breakdown-row">
+        <span class="breakdown-label">Heat Waste (PSU)</span>
+        <span id="heat-waste-value" class="breakdown-value">--W</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .stat-clock {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--text-tertiary);
+    margin-top: 2px;
+  }
+  
+  .clock-info {
+    margin-top: var(--space-3);
+    padding: var(--space-2);
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-sm);
+    border-left: 2px solid var(--color-info);
+  }
+  
+  .clock-info-title {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--space-1);
+  }
+  
+  .clock-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 2px 0;
+    font-family: var(--font-mono);
+    font-size: var(--font-size-xs);
+  }
+  
+  .clock-label {
+    color: var(--text-tertiary);
+  }
+  
+  .clock-value {
+    color: var(--text-secondary);
+    font-weight: 500;
+  }
+</style>

@@ -1,0 +1,257 @@
+[
+    {
+        "id": "psu-450w-bronze",
+        "name": "450W Bronze",
+        "wattage": 450,
+        "rating": "80+ Bronze",
+        "efficiency": {
+            "10": 0.81,
+            "20": 0.84,
+            "50": 0.86,
+            "80": 0.84,
+            "100": 0.82
+        },
+        "rippleSuppression": 0.7,
+        "transientResponse": 0.75
+    },
+    {
+        "id": "psu-500w-bronze",
+        "name": "500W Bronze",
+        "wattage": 500,
+        "rating": "80+ Bronze",
+        "efficiency": {
+            "10": 0.81,
+            "20": 0.84,
+            "50": 0.86,
+            "80": 0.84,
+            "100": 0.82
+        },
+        "rippleSuppression": 0.72,
+        "transientResponse": 0.76
+    },
+    {
+        "id": "psu-550w-bronze",
+        "name": "550W Bronze",
+        "wattage": 550,
+        "rating": "80+ Bronze",
+        "efficiency": {
+            "10": 0.82,
+            "20": 0.85,
+            "50": 0.87,
+            "80": 0.85,
+            "100": 0.83
+        },
+        "rippleSuppression": 0.74,
+        "transientResponse": 0.78
+    },
+    {
+        "id": "psu-600w-bronze",
+        "name": "600W Bronze",
+        "wattage": 600,
+        "rating": "80+ Bronze",
+        "efficiency": {
+            "10": 0.82,
+            "20": 0.85,
+            "50": 0.87,
+            "80": 0.85,
+            "100": 0.83
+        },
+        "rippleSuppression": 0.75,
+        "transientResponse": 0.79
+    },
+    {
+        "id": "psu-550w-gold",
+        "name": "550W Gold",
+        "wattage": 550,
+        "rating": "80+ Gold",
+        "efficiency": {
+            "10": 0.86,
+            "20": 0.89,
+            "50": 0.91,
+            "80": 0.89,
+            "100": 0.87
+        },
+        "rippleSuppression": 0.82,
+        "transientResponse": 0.84
+    },
+    {
+        "id": "psu-650w-gold",
+        "name": "650W Gold",
+        "wattage": 650,
+        "rating": "80+ Gold",
+        "efficiency": {
+            "10": 0.87,
+            "20": 0.90,
+            "50": 0.92,
+            "80": 0.90,
+            "100": 0.88
+        },
+        "rippleSuppression": 0.84,
+        "transientResponse": 0.86
+    },
+    {
+        "id": "psu-750w-gold",
+        "name": "750W Gold",
+        "wattage": 750,
+        "rating": "80+ Gold",
+        "efficiency": {
+            "10": 0.87,
+            "20": 0.90,
+            "50": 0.92,
+            "80": 0.90,
+            "100": 0.88
+        },
+        "rippleSuppression": 0.85,
+        "transientResponse": 0.87
+    },
+    {
+        "id": "psu-850w-gold",
+        "name": "850W Gold",
+        "wattage": 850,
+        "rating": "80+ Gold",
+        "efficiency": {
+            "10": 0.88,
+            "20": 0.91,
+            "50": 0.93,
+            "80": 0.91,
+            "100": 0.89
+        },
+        "rippleSuppression": 0.86,
+        "transientResponse": 0.88
+    },
+    {
+        "id": "psu-1000w-gold",
+        "name": "1000W Gold",
+        "wattage": 1000,
+        "rating": "80+ Gold",
+        "efficiency": {
+            "10": 0.88,
+            "20": 0.91,
+            "50": 0.93,
+            "80": 0.91,
+            "100": 0.89
+        },
+        "rippleSuppression": 0.87,
+        "transientResponse": 0.89
+    },
+    {
+        "id": "psu-750w-platinum",
+        "name": "750W Platinum",
+        "wattage": 750,
+        "rating": "80+ Platinum",
+        "efficiency": {
+            "10": 0.89,
+            "20": 0.92,
+            "50": 0.94,
+            "80": 0.92,
+            "100": 0.90
+        },
+        "rippleSuppression": 0.9,
+        "transientResponse": 0.92
+    },
+    {
+        "id": "psu-850w-platinum",
+        "name": "850W Platinum",
+        "wattage": 850,
+        "rating": "80+ Platinum",
+        "efficiency": {
+            "10": 0.90,
+            "20": 0.92,
+            "50": 0.94,
+            "80": 0.92,
+            "100": 0.90
+        },
+        "rippleSuppression": 0.91,
+        "transientResponse": 0.93
+    },
+    {
+        "id": "psu-1000w-platinum",
+        "name": "1000W Platinum",
+        "wattage": 1000,
+        "rating": "80+ Platinum",
+        "efficiency": {
+            "10": 0.90,
+            "20": 0.93,
+            "50": 0.95,
+            "80": 0.93,
+            "100": 0.91
+        },
+        "rippleSuppression": 0.92,
+        "transientResponse": 0.94
+    },
+    {
+        "id": "psu-1200w-platinum",
+        "name": "1200W Platinum",
+        "wattage": 1200,
+        "rating": "80+ Platinum",
+        "efficiency": {
+            "10": 0.90,
+            "20": 0.93,
+            "50": 0.95,
+            "80": 0.93,
+            "100": 0.91
+        },
+        "rippleSuppression": 0.93,
+        "transientResponse": 0.95
+    },
+    {
+        "id": "psu-850w-titanium",
+        "name": "850W Titanium",
+        "wattage": 850,
+        "rating": "80+ Titanium",
+        "efficiency": {
+            "10": 0.92,
+            "20": 0.94,
+            "50": 0.96,
+            "80": 0.94,
+            "100": 0.92
+        },
+        "rippleSuppression": 0.95,
+        "transientResponse": 0.96
+    },
+    {
+        "id": "psu-1000w-titanium",
+        "name": "1000W Titanium",
+        "wattage": 1000,
+        "rating": "80+ Titanium",
+        "efficiency": {
+            "10": 0.92,
+            "20": 0.94,
+            "50": 0.96,
+            "80": 0.94,
+            "100": 0.92
+        },
+        "rippleSuppression": 0.95,
+        "transientResponse": 0.97
+    },
+    {
+        "id": "psu-1200w-titanium",
+        "name": "1200W Titanium",
+        "wattage": 1200,
+        "rating": "80+ Titanium",
+        "efficiency": {
+            "10": 0.93,
+            "20": 0.95,
+            "50": 0.96,
+            "80": 0.95,
+            "100": 0.93
+        },
+        "rippleSuppression": 0.96,
+        "transientResponse": 0.97
+    },
+    {
+        "id": "psu-1600w-titanium",
+        "name": "1600W Titanium",
+        "wattage": 1600,
+        "rating": "80+ Titanium",
+        "efficiency": {
+            "10": 0.93,
+            "20": 0.95,
+            "50": 0.97,
+            "80": 0.95,
+            "100": 0.93
+        },
+        "rippleSuppression": 0.97,
+        "transientResponse": 0.98
+    }
+]

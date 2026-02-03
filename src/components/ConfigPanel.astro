@@ -1,0 +1,358 @@
+---
+/**
+ * Hardware Configuration Panel - Comprehensive with grouped selects and help integration
+ */
+---
+
+<div class="panel config-panel">
+    <div class="panel-header">
+        <span class="panel-title">System Configuration</span>
+    </div>
+    
+    <!-- System Readiness Indicator -->
+    <div id="system-readiness" class="system-readiness">
+        <div class="readiness-icon-wrapper">
+             <i class="ph-fill ph-pulse readiness-icon"></i>
+             <div class="status-ring"></div>
+        </div>
+        <div class="readiness-content">
+            <div class="readiness-status">System Initializing</div>
+            <div class="readiness-details">Loading constraints...</div>
+        </div>
+    </div>
+    
+    <div class="panel-content">
+        <div class="form-group" data-help="cpu">
+            <label class="form-label" for="cpu-select">
+                <span class="label-text"><i class="ph ph-cpu"></i> Processor</span>
+                <span class="label-hint" title="View details"><i class="ph-bold ph-info"></i></span>
+            </label>
+            <select id="cpu-select" class="form-select"></select>
+            <div id="cpu-info" class="stat-info"></div>
+        </div>
+        
+        <div class="form-group" data-help="gpu">
+            <label class="form-label" for="gpu-select">
+                <span class="label-text"><i class="ph ph-graphics-card"></i> Graphics Card</span>
+                <span class="label-hint" title="View details"><i class="ph-bold ph-info"></i></span>
+            </label>
+            <select id="gpu-select" class="form-select"></select>
+            <div id="gpu-info" class="stat-info"></div>
+        </div>
+        
+        <div class="form-group" data-help="psu">
+            <label class="form-label" for="psu-select">
+                <span class="label-text"><i class="ph ph-plug"></i> Power Supply</span>
+                <span class="label-hint" title="View details"><i class="ph-bold ph-info"></i></span>
+            </label>
+            <div class="styled-select-wrapper">
+                <select id="psu-select" class="form-select"></select>
+            </div>
+        </div>
+        
+        <div class="form-group" data-help="cooling">
+            <label class="form-label" for="cooling-select">
+                <span class="label-text"><i class="ph ph-fan"></i> CPU Cooling</span>
+                <span class="label-hint" title="View details"><i class="ph-bold ph-info"></i></span>
+            </label>
+            <div class="styled-select-wrapper">
+                <select id="cooling-select" class="form-select"></select>
+            </div>
+        </div>
+        
+        <div class="form-group" data-help="memory">
+            <label class="form-label" for="memory-select">
+                <span class="label-text"><i class="ph ph-memory"></i> Memory</span>
+                <span class="label-hint" title="View details"><i class="ph-bold ph-info"></i></span>
+            </label>
+            <div class="styled-select-wrapper">
+                <select id="memory-select" class="form-select"></select>
+            </div>
+            <div id="compatibility-warning" class="compatibility-warning"></div>
+        </div>
+        
+        <div class="config-divider"></div>
+        
+        <div class="form-group" data-help="storage">
+            <label class="form-label">
+                <span class="label-text"><i class="ph ph-hard-drives"></i> Storage Configuration</span>
+                <span class="label-hint" title="View details"><i class="ph-bold ph-info"></i></span>
+            </label>
+            <div class="storage-grid">
+                <div class="storage-input">
+                    <label for="storage-nvme">NVMe</label>
+                    <input type="number" id="storage-nvme" class="form-input" value="1" min="0" max="6">
+                </div>
+                <div class="storage-input">
+                    <label for="storage-sata">SATA SSD</label>
+                    <input type="number" id="storage-sata" class="form-input" value="0" min="0" max="6">
+                </div>
+                <div class="storage-input">
+                    <label for="storage-hdd">HDD</label>
+                    <input type="number" id="storage-hdd" class="form-input" value="0" min="0" max="4">
+                </div>
+            </div>
+        </div>
+        
+        <div class="form-row">
+            <div class="form-group" data-help="fans">
+                <label class="form-label" for="fan-count">
+                    <span class="label-text"><i class="ph ph-wind"></i> Case Fans</span>
+                </label>
+                <input type="number" id="fan-count" class="form-input" value="4" min="1" max="12">
+            </div>
+            <div class="form-group" data-help="ambient">
+                <label class="form-label" for="ambient-temp">
+                    <span class="label-text"><i class="ph ph-thermometer"></i> Ambient °C</span>
+                </label>
+                <input type="number" id="ambient-temp" class="form-input" value="25" min="15" max="45">
+            </div>
+        </div>
+        
+        <div class="form-group" data-help="airflow">
+            <label class="form-label" for="airflow-select">
+                <span class="label-text">Case Airflow</span>
+                <span class="label-hint" title="View details"><i class="ph-bold ph-info"></i></span>
+            </label>
+            <div class="styled-select-wrapper">
+                <select id="airflow-select" class="form-select"></select>
+            </div>
+        </div>
+        
+        <div class="config-divider"></div>
+        
+        <div class="form-group" data-help="workload">
+            <label class="form-label" for="workload-select">
+                <span class="label-text">Workload Profile</span>
+                <span class="label-hint" title="View details"><i class="ph-bold ph-info"></i></span>
+            </label>
+            <div class="styled-select-wrapper">
+                <select id="workload-select" class="form-select"></select>
+            </div>
+        </div>
+        
+        <div class="controls-group" style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-2); margin-bottom: var(--space-4);">
+            <button id="pause-button" class="control-button">
+                <i class="ph-bold ph-pause"></i> Pause
+            </button>
+            <button id="reset-button" class="control-button">
+                <i class="ph-bold ph-arrow-counter-clockwise"></i> Reset
+            </button>
+        </div>
+        
+        <div class="speed-row">
+            <span class="form-label">Sim Speed</span>
+            <div class="styled-select-wrapper">
+                <select id="speed-select" class="form-select speed-select">
+                <option value="0.25">0.25×</option>
+                <option value="0.5">0.5×</option>
+                <option value="1" selected>1×</option>
+                <option value="2">2×</option>
+                <option value="5">5×</option>
+                <option value="10">10×</option>
+            </select>
+            </div>
+            <span class="sim-time">
+                <span class="time-label">Time:</span>
+                <span id="simulated-time-value" class="time-value">00:00</span>
+            </span>
+        </div>
+    </div>
+</div>
+
+<style>
+    .config-panel {
+        max-height: calc(100vh - 100px);
+        overflow-y: auto;
+    }
+    
+    .storage-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-2);
+    }
+    
+    .storage-input label {
+        display: block;
+        font-size: 0.65rem;
+        color: var(--text-tertiary);
+        margin-bottom: 2px;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+    
+    .config-divider {
+        height: 1px;
+        background: var(--border-subtle);
+        margin: var(--space-3) 0;
+    }
+    
+    .compatibility-warning {
+        display: none;
+        font-size: var(--font-size-xs);
+        color: var(--color-danger);
+        margin-top: var(--space-1);
+        padding: var(--space-2);
+        background: var(--color-danger-bg);
+        border-radius: var(--radius-sm);
+        border-left: 2px solid var(--color-danger);
+    }
+    
+    .compatibility-warning.visible {
+        display: block;
+    }
+    
+    .form-label {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .label-hint {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 14px;
+        height: 14px;
+        font-size: 10px;
+        color: var(--text-muted);
+        border: 1px solid var(--border-subtle);
+        border-radius: 50%;
+        opacity: 0.6;
+        transition: opacity 0.2s;
+    }
+    
+    [data-help]:hover .label-hint {
+        opacity: 1;
+        color: var(--text-secondary);
+        border-color: var(--border-default);
+    }
+    
+    .control-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: var(--space-1);
+    }
+    
+    .btn-icon {
+        font-size: 1em;
+    }
+    
+    .speed-select {
+        width: auto !important;
+        min-width: 70px;
+    }
+    
+    .sim-time {
+        display: flex;
+        align-items: center;
+        gap: var(--space-1);
+    }
+    
+    .time-label {
+        font-size: var(--font-size-xs);
+        color: var(--text-tertiary);
+    }
+    
+    .time-value {
+        font-family: var(--font-mono);
+        font-size: var(--font-size-sm);
+        font-weight: 600;
+        color: var(--text-secondary);
+    }
+    
+    /* System Readiness Indicator */
+    .system-readiness {
+        display: flex;
+        align-items: flex-start;
+        gap: var(--space-2);
+        padding: var(--space-3);
+        margin: var(--space-3);
+        margin-bottom: var(--space-2);
+        background: var(--panel-bg);
+        border: 1px solid var(--border-subtle);
+        border-radius: var(--radius-sm);
+        transition: all 0.3s ease;
+    }
+    
+    .system-readiness.valid {
+        border-color: #10b981;
+        background: rgba(16, 185, 129, 0.05);
+    }
+    
+    .system-readiness.warning {
+        border-color: #f59e0b;
+        background: rgba(245, 158, 11, 0.05);
+    }
+    
+    .system-readiness.error {
+        border-color: #ef4444;
+        background: rgba(239, 68, 68, 0.05);
+    }
+    
+    .readiness-icon {
+        font-size: 1.25rem;
+        line-height: 1;
+        transition: color 0.3s ease;
+    }
+    
+    .system-readiness.valid .readiness-icon {
+        color: #10b981;
+    }
+    
+    .system-readiness.warning .readiness-icon {
+        color: #f59e0b;
+    }
+    
+    .system-readiness.error .readiness-icon {
+        color: #ef4444;
+    }
+    
+    .readiness-content {
+        flex: 1;
+        min-width: 0;
+    }
+    
+    .readiness-status {
+        font-size: var(--font-size-sm);
+        font-weight: 600;
+        margin-bottom: var(--space-1);
+        font-family: var(--font-mono);
+        transition: color 0.3s ease;
+    }
+    
+    .system-readiness.valid .readiness-status {
+        color: #10b981;
+    }
+    
+    .system-readiness.warning .readiness-status {
+        color: #f59e0b;
+    }
+    
+    .system-readiness.error .readiness-status {
+        color: #ef4444;
+    }
+    
+    .readiness-details {
+        font-size: var(--font-size-xs);
+        color: var(--text-tertiary);
+        line-height: 1.4;
+    }
+    
+    .readiness-details ul {
+        margin: var(--space-1) 0 0 0;
+        padding-left: 1rem;
+        list-style: none;
+    }
+    
+    .readiness-details li {
+        margin-bottom: 2px;
+    }
+    
+    .readiness-details li::before {
+        content: '•';
+        margin-right: 0.5rem;
+        color: var(--text-muted);
+    }
+</style>

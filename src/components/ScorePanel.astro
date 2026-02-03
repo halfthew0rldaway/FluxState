@@ -1,0 +1,178 @@
+---
+/**
+ * System Score Panel
+ * Visualizes the "grade" of the current configuration.
+ */
+---
+<div class="panel score-panel">
+    <div class="panel-header">
+        <span class="panel-title">Build Quality Rating</span>
+    </div>
+    <div class="panel-content">
+        <div class="score-layout">
+            <div class="grade-section">
+                <div class="grade-circle">
+                    <svg viewBox="0 0 120 120" class="grade-ring-svg">
+                        <circle cx="60" cy="60" r="54" class="ring-bg" />
+                        <circle cx="60" cy="60" r="54" class="ring-val" id="grade-ring" pathLength="100" />
+                    </svg>
+                    <div class="grade-display">
+                        <span class="grade-text" id="grade-value">--</span>
+                        <span class="grade-label">RANK</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="metrics-section">
+                <div class="metric-item">
+                    <div class="metric-header">
+                        <span class="metric-name"><i class="ph-fill ph-lightning"></i> Efficiency</span>
+                        <span class="metric-score" id="score-eff-val">--</span>
+                    </div>
+                    <div class="metric-track">
+                        <div class="metric-fill" id="score-eff-bar"></div>
+                    </div>
+                </div>
+                
+                <div class="metric-item">
+                    <div class="metric-header">
+                        <span class="metric-name"><i class="ph-fill ph-thermometer"></i> Thermals</span>
+                        <span class="metric-score" id="score-therm-val">--</span>
+                    </div>
+                    <div class="metric-track">
+                        <div class="metric-fill" id="score-therm-bar"></div>
+                    </div>
+                </div>
+                
+                <div class="metric-item">
+                    <div class="metric-header">
+                        <span class="metric-name"><i class="ph-fill ph-check-circle"></i> Stability</span>
+                        <span class="metric-score" id="score-stab-val">--</span>
+                    </div>
+                    <div class="metric-track">
+                        <div class="metric-fill" id="score-stab-bar"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .score-layout {
+        display: flex;
+        align-items: center;
+        gap: var(--space-4);
+        padding: var(--space-2);
+    }
+    
+    .grade-section {
+        flex: 0 0 auto;
+    }
+    
+    .grade-circle {
+        position: relative;
+        width: 100px;
+        height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .grade-ring-svg {
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        transform: rotate(-90deg);
+    }
+    
+    .ring-bg {
+        fill: none;
+        stroke: var(--bg-elevated);
+        stroke-width: 8;
+    }
+    
+    .ring-val {
+        fill: none;
+        stroke: var(--color-brand);
+        stroke-width: 8;
+        stroke-linecap: round;
+        stroke-dasharray: 100;
+        stroke-dashoffset: 100; /* Start empty */
+        transition: stroke-dashoffset 1s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.3s;
+    }
+    
+    .grade-display {
+        text-align: center;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        line-height: 1;
+    }
+    
+    .grade-text {
+        font-family: var(--font-mono);
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        text-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+    }
+    
+    .grade-label {
+        font-size: 0.6rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        color: var(--text-tertiary);
+        margin-top: 4px;
+    }
+    
+    .metrics-section {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-3);
+    }
+    
+    .metric-header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 4px;
+        font-size: 0.75rem;
+    }
+    
+    .metric-name {
+        color: var(--text-secondary);
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+    .metric-name i { color: var(--text-tertiary); }
+    
+    .metric-score {
+        font-family: var(--font-mono);
+        color: var(--text-primary);
+    }
+    
+    .metric-track {
+        height: 6px;
+        background: var(--bg-elevated);
+        border-radius: 99px;
+        overflow: hidden;
+    }
+    
+    .metric-fill {
+        height: 100%;
+        width: 0%;
+        background: var(--color-brand);
+        border-radius: 99px;
+        transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s;
+    }
+    
+    /* Rank Colors */
+    :global(.grade-text.rank-S) { color: #d946ef; text-shadow: 0 0 20px rgba(217, 70, 239, 0.5); }
+    :global(.grade-text.rank-A) { color: #10b981; text-shadow: 0 0 20px rgba(16, 185, 129, 0.5); }
+    :global(.grade-text.rank-B) { color: #3b82f6; text-shadow: 0 0 20px rgba(59, 130, 246, 0.5); }
+    :global(.grade-text.rank-C) { color: #f59e0b; text-shadow: 0 0 20px rgba(245, 158, 11, 0.5); }
+    :global(.grade-text.rank-D) { color: #ef4444; text-shadow: 0 0 20px rgba(239, 68, 68, 0.5); }
+</style>

@@ -1,0 +1,87 @@
+---
+/**
+ * Thermal Stats Panel - Enhanced with cooling capacity and headroom
+ */
+---
+
+<div class="panel thermal-panel">
+    <div class="panel-header">
+        <span class="panel-title">Thermal Status</span>
+    </div>
+    <div class="panel-content">
+        <div class="stat-item primary-stat">
+            <div class="stat-label">CPU Temperature</div>
+            <div id="cpu-temp-value" class="stat-value large">--°C</div>
+            <div class="progress-container">
+                <div id="cpu-temp-bar" class="progress-bar temp" style="width: 0%"></div>
+            </div>
+        </div>
+        
+        <div class="stats-grid" style="margin-top: var(--space-3);">
+            <div class="stat-item">
+                <div class="stat-label">Equilibrium</div>
+                <div id="equilibrium-value" class="stat-value-small">--°C</div>
+                <div class="stat-hint">Target stable temp</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">Headroom</div>
+                <div id="thermal-headroom-value" class="stat-value-small">--°C</div>
+                <div class="stat-hint">Below thermal limit</div>
+                <div class="thermal-headroom-bar">
+                    <div id="thermal-headroom-fill" class="thermal-headroom-fill"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="stats-grid" style="margin-top: var(--space-2);">
+            <div class="stat-item">
+                <div class="stat-label">Fan Speed</div>
+                <div id="fan-speed-value" class="stat-value-small">--%</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">Cooling Load</div>
+                <div id="cooling-capacity-value" class="stat-value-small">-- used</div>
+            </div>
+        </div>
+        
+        <div class="stat-item" style="margin-top: var(--space-2);">
+            <div class="stat-label">Noise Level</div>
+            <div id="noise-value" class="stat-value-small">-- dB</div>
+        </div>
+        
+        <div id="boost-indicator" class="indicator boost-indicator">
+            <span class="indicator-icon"><i class="ph-bold ph-lightning"></i></span>
+            <span class="boost-label">Turbo Boost Active</span>
+            <span class="boost-time">--s</span>
+        </div>
+        
+        <div id="throttle-indicator" class="indicator throttle-indicator">
+            <span class="indicator-icon"><i class="ph-bold ph-fire"></i></span>
+            <span class="throttle-label">Thermal Throttling</span>
+            <span class="throttle-value">-0%</span>
+        </div>
+    </div>
+</div>
+
+<style>
+    .primary-stat {
+        padding: var(--space-3);
+        background: var(--bg-tertiary);
+        border-radius: var(--radius-sm);
+        border-left: 3px solid var(--color-info);
+    }
+    
+    .stat-value.large {
+        font-size: 1.5rem;
+    }
+    
+    .stat-hint {
+        font-size: 0.6rem;
+        color: var(--text-muted);
+        margin-top: 2px;
+    }
+    
+    .indicator-icon {
+        font-size: 1rem;
+    }
+</style>

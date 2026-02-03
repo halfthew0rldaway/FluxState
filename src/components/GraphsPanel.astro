@@ -1,0 +1,30 @@
+---
+/**
+ * Graphs Panel - Enhanced with history slider
+ */
+---
+
+<div class="graphs-section">
+  <div class="panel">
+    <div class="panel-header">
+      <span class="panel-title">Power Draw (Live)</span>
+    </div>
+    <div class="graph-container">
+      <canvas id="power-graph"></canvas>
+    </div>
+  </div>
+  
+  <div class="panel">
+    <div class="panel-header">
+      <span class="panel-title">CPU Temperature (Live)</span>
+    </div>
+    <div class="graph-container">
+      <canvas id="temp-graph"></canvas>
+    </div>
+  </div>
+</div>
+
+<div class="history-control">
+  <span class="form-label" style="margin-bottom: 0;">History</span>
+  <input type="range" id="history-slider" class="history-slider" min="0" max="0" value="0">
+</div>
